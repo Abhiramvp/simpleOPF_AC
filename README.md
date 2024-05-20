@@ -7,3 +7,23 @@ A simple OPF considers the network data in the form of all the relevant bounds o
 
 Here, a semidefinite programming relaxation (SDR) technique to efficiently convert the nonlinear nonconvex problem into a tractable semidefinite program (SDP) form, which is a convex optimization problem, solved using a commercial solver.
 A simple OPF is the prerequisite for any addition to an OPF problem making it complex, e.g., security-constrained, stability-constrained, robust optimization, etc.
+
+
+## Basic OPF Formulation
+
+### Objective
+Minimize:
+$$
+f(x) = \sum_{i=1}^n c_i P_i
+$$
+
+### Constraints
+Subject to:
+$$
+\begin{align*}
+& \text{Power balance at each bus:} & P_i - \sum_{j=1}^n P_{ij} = 0 \\
+& \text{Voltage magnitude limits:} & V_{min} \leq V_i \leq V_{max} \\
+& \text{Generator limits:} & P_{min} \leq P_i \leq P_{max} \\
+& \text{Line flow limits:} & P_{ij} \leq P_{ij}^{max}
+\end{align*}
+$$
